@@ -1,0 +1,31 @@
+version: "3"
+services:
+  api-defesa-civil:
+    build:
+      context: ./
+    container_name: api-defesa-civil
+    env_file:
+      - ./.env
+    volumes:
+      - ./:/app
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    restart: on-failure
+  db:
+    image: mongo
+    container_name: db-defesa-civil
+    env_file:
+      - ./.env
+    environment:
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: "rabbitmq"
+    ports:
+      - ${RMQ_MAIN_PORT}:${RMQ_MAIN_PORT}
+      - ${RMQ_PLUGIN_PORT}:${RMQ_PLUGIN_PORT}
+    volumes:
+      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./.docker/rabbitmq/log/:/var/log/rabbitmq
