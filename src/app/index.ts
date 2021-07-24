@@ -2,12 +2,14 @@ import dotenv from "dotenv";
 dotenv.config();
 import { IApp } from "./interfaces";
 import express, { Express, Request, Response } from "express";
-import Connection from "../config/database/connection";
+import dbConnection from "../config/database/connection";
+import { RabbitMQConfig } from "../config/rabbitMQ/connection";
 import errorHandler from "../middlewares/errorHandler";
 import cors from "../middlewares/cors";
 
 export default class App implements IApp {
   express: Express;
+  rabbitMQConfig: RabbitMQConfig;
 
   constructor() {
     this.express = express();
@@ -15,12 +17,14 @@ export default class App implements IApp {
     this.middlewares();
     this.routeNotFound();
     this.handleError();
+    this.rabbitMQConfig = new RabbitMQConfig();
+    this.rabbitMQConfig.init(this.rabbitMQConfig.callbackInit);
     this.express.listen(process.env.APP_PORT);
     console.log(`Listening on port ${process.env.APP_PORT}`);
   }
 
   mongoConnect() {
-    const connection = new Connection();
+    const connection = new dbConnection();
     connection.init(connection.dbConnect);
   }
 

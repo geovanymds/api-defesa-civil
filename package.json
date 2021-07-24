@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/geovanymds/api-defesa-civil#readme",
   "dependencies": {
+    "@types/amqplib": "^0.8.1",
     "@types/express": "^4.17.13",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^16.3.3",
+    "amqplib": "^0.8.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.3"
