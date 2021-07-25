@@ -40,6 +40,7 @@ const AgenteSchema: mongoose.Schema = new mongoose.Schema({
   },
   cpf: {
     type: String,
+    unique: true,
     required: true,
   },
   emprego: {
@@ -52,6 +53,7 @@ const AgenteSchema: mongoose.Schema = new mongoose.Schema({
   },
   email: {
     type: String,
+    unique: true,
     required: true,
   },
   dataDeNascimento: {

@@ -3,18 +3,22 @@ dotenv.config();
 import { IApp } from "./interfaces";
 import express, { Express, Request, Response } from "express";
 import dbConnection from "../config/database/connection";
+import { MainRouter } from "../routes";
+import { IMainRouter } from "../routes/interfaces";
 import { RabbitMQConfig } from "../config/rabbitMQ/connection";
 import errorHandler from "../middlewares/errorHandler";
 import cors from "../middlewares/cors";
 
 export default class App implements IApp {
   express: Express;
+  router: IMainRouter;
   rabbitMQConfig: RabbitMQConfig;
 
   constructor() {
     this.express = express();
     this.mongoConnect();
     this.middlewares();
+    this.router = new MainRouter(this.express);
     this.routeNotFound();
     this.handleError();
     this.rabbitMQConfig = new RabbitMQConfig();

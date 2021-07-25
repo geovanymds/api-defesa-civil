@@ -53,6 +53,7 @@ export default class AgenteController
 
       return res.status(200).json({
         message: "Agente cadastrado.",
+        agenteId: agente.id,
         token,
       });
     } catch (error) {
@@ -91,6 +92,7 @@ export default class AgenteController
 
       return res.status(200).json({
         message: "Agente conectado.",
+        agenteId: agente.id,
         token,
       });
     } catch (error) {

@@ -52,6 +52,7 @@ export default class CidadaoController
 
       return res.status(200).json({
         message: "Cidadao cadastrado.",
+        bairro: cidadao.bairro,
         token,
       });
     } catch (error) {
@@ -89,6 +90,7 @@ export default class CidadaoController
 
       return res.status(200).json({
         message: "Cidadão conectado.",
+        bairro: cidadao.bairro,
         token,
       });
     } catch (error) {

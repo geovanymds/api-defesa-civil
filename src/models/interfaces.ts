@@ -62,4 +62,5 @@ export interface INotificacao {
   categoria: categorias;
   status: tiposStatus;
   data: Date;
+  agente: string;
 }

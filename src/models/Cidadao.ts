@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose";
+import { bairros } from "../utils";
 import { ICidadao } from "./interfaces";
 
 export class Cidadao implements ICidadao {
@@ -40,10 +41,12 @@ const CidadaoSchema: mongoose.Schema = new mongoose.Schema({
   },
   cpf: {
     type: String,
+    unique: true,
     required: true,
   },
   bairro: {
     type: String,
+    enum: bairros,
     required: true,
   },
   senha: {

@@ -15,6 +15,7 @@ export class Notificacao implements INotificacao {
   categoria: categorias;
   status: tiposStatus;
   data: Date;
+  agente: string;
 
   constructor({
     bairro,
@@ -24,6 +25,7 @@ export class Notificacao implements INotificacao {
     categoria,
     status,
     data,
+    agente,
   }: INotificacao) {
     this.bairro = bairro;
     this.titulo = titulo;
@@ -32,6 +34,7 @@ export class Notificacao implements INotificacao {
     this.categoria = categoria;
     this.status = status;
     this.data = data;
+    this.agente = agente;
   }
 }
 
@@ -63,6 +66,10 @@ const NotificacaoSchema: mongoose.Schema = new mongoose.Schema({
   },
   data: {
     type: Date,
+    required: true,
+  },
+  agente: {
+    type: String,
     required: true,
   },
 });
