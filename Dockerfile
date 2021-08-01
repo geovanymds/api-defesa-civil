@@ -6,4 +6,4 @@ COPY --chown=node:node . .
 ENV PATH=/app/node_modules/.bin:$PATH
 RUN npm ci && npm cache clean --force && npm install
 USER node
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

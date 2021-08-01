@@ -16,10 +16,13 @@ export default class AgenteController
       cpf,
       emprego,
       email,
+      admin,
       senha,
       checkSenha,
       dataDeNascimento,
     } = req.body;
+
+    console.log("BODY: ", req.body);
 
     try {
       if (senha !== checkSenha) {
@@ -34,6 +37,7 @@ export default class AgenteController
         cpf,
         emprego,
         email,
+        admin,
         senha: hashedPass,
         dataDeNascimento,
       });

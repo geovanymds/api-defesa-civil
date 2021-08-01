@@ -8,6 +8,7 @@ export class Agente implements IAgente {
   emprego: empregos;
   senha: string;
   email: string;
+  admin: boolean;
   dataDeNascimento: Date;
 
   constructor({
@@ -17,6 +18,7 @@ export class Agente implements IAgente {
     emprego,
     senha,
     email,
+    admin,
     dataDeNascimento,
   }: IAgente) {
     this.nome = nome;
@@ -25,6 +27,7 @@ export class Agente implements IAgente {
     this.emprego = emprego;
     this.senha = senha;
     this.email = email;
+    this.admin = admin;
     this.dataDeNascimento = dataDeNascimento;
   }
 }
@@ -54,6 +57,10 @@ const AgenteSchema: mongoose.Schema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
+    required: true,
+  },
+  admin: {
+    type: Boolean,
     required: true,
   },
   dataDeNascimento: {

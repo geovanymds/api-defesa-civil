@@ -31,16 +31,7 @@ export interface IAgente {
   emprego: empregos;
   senha: string;
   email: string;
-  dataDeNascimento: Date;
-}
-
-export interface ICidadao {
-  nome: string;
-  sobrenome: string;
-  cpf: string;
-  senha: string;
-  bairro: string;
-  cep: string;
+  admin: boolean;
   dataDeNascimento: Date;
 }
 
