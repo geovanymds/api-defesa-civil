@@ -5,7 +5,7 @@ import express, { Express, Request, Response } from "express";
 import dbConnection from "../config/database/connection";
 import { MainRouter } from "../routes";
 import { IMainRouter } from "../routes/interfaces";
-import { RabbitMQConfig } from "../config/rabbitMQ/connection";
+//import { RabbitMQConfig } from "../config/rabbitMQ/connection";
 import errorHandler from "../middlewares/errorHandler";
 import cors from "../middlewares/cors";
 
