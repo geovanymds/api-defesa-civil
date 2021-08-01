@@ -12,7 +12,7 @@ import cors from "../middlewares/cors";
 export default class App implements IApp {
   express: Express;
   router: IMainRouter;
-  rabbitMQConfig: RabbitMQConfig;
+  //rabbitMQConfig: RabbitMQConfig;
 
   constructor() {
     this.express = express();
@@ -21,8 +21,8 @@ export default class App implements IApp {
     this.router = new MainRouter(this.express);
     this.routeNotFound();
     this.handleError();
-    this.rabbitMQConfig = new RabbitMQConfig();
-    this.rabbitMQConfig.init(this.rabbitMQConfig.callbackInit);
+    // this.rabbitMQConfig = new RabbitMQConfig();
+    // this.rabbitMQConfig.init(this.rabbitMQConfig.callbackInit);
     this.express.listen(process.env.APP_PORT);
     console.log(`Listening on port ${process.env.APP_PORT}`);
   }

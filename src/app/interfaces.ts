@@ -14,7 +14,7 @@ declare global {
 export interface IApp {
   express: Express;
   router: IMainRouter;
-  rabbitMQConfig: RabbitMQConfig;
+  //rabbitMQConfig: RabbitMQConfig;
   middlewares(): void;
   mongoConnect(): void;
 }
