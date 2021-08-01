@@ -23,8 +23,10 @@ export default class App implements IApp {
     this.handleError();
     // this.rabbitMQConfig = new RabbitMQConfig();
     // this.rabbitMQConfig.init(this.rabbitMQConfig.callbackInit);
-    this.express.listen(process.env.APP_PORT);
-    console.log(`Listening on port ${process.env.APP_PORT}`);
+    this.express.listen(process.env.PORT || process.env.APP_PORT);
+    console.log(
+      `Listening on port ${process.env.PORT || process.env.APP_PORT}`
+    );
   }
 
   mongoConnect() {
