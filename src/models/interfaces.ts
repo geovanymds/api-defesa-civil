@@ -1,9 +1,9 @@
 export enum empregos {
-  prefeitura = "Funcionario da Prefeitura",
-  policial = "Policial Civil",
-  bombeiro = "Bombeiro",
-  cemig = "Funcionario da CEMIG",
-  copasa = "Funcionario da COPASA",
+  prefeitura = "prefeitura",
+  policial = "policial",
+  bombeiro = "bombeiro",
+  cemig = "cemig",
+  copasa = "copasa",
 }
 
 export enum gravidades {
