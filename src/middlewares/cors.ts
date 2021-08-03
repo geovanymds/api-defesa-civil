@@ -6,7 +6,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     "Access-Control-Allow-Methods",
     "OPTIONS, GET, POST, PUT, PATCH, DELETE"
   );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Last-Modified", new Date().toUTCString());
   next();
 };
