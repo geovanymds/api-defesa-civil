@@ -4,6 +4,8 @@ WORKDIR /app
 COPY --chown=node:node package.json package-lock*.json ./
 COPY --chown=node:node . .
 ENV PATH=/app/node_modules/.bin:$PATH
-RUN npm ci && npm cache clean --force && npm install
+RUN npm install
+RUN npm install -g typescript
 USER node
-CMD ["npm", "run", "dev"]
+CMD ["npm","start"]
+EXPOSE 8000

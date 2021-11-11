@@ -8,6 +8,8 @@ services:
       - ./.env
     volumes:
       - ./:/app
+      - /app/node_modules
+      - /app/dist
     ports:
       - ${APP_PORT}:${APP_PORT}
     restart: on-failure
@@ -20,12 +22,3 @@ services:
       MONGO_INITDB_DATABASE: ${DB_NAME}
     ports:
       - ${DB_PORT}:${DB_PORT}
-  # rabbitmq:
-  #   image: rabbitmq:3-management-alpine
-  #   container_name: "rabbitmq"
-  #   ports:
-  #     - ${RMQ_MAIN_PORT}:${RMQ_MAIN_PORT}
-  #     - ${RMQ_PLUGIN_PORT}:${RMQ_PLUGIN_PORT}
-  #   volumes:
-  #     - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
-  #     - ./.docker/rabbitmq/log/:/var/log/rabbitmq
