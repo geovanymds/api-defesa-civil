@@ -43,6 +43,7 @@ export default class App implements IApp {
     });
     this.express.use((req, res, next) => {
       console.log("REQUEST: ", req);
+      next();
     });
   }
 
