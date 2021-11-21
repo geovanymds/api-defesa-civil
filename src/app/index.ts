@@ -41,10 +41,6 @@ export default class App implements IApp {
     this.express.get("/", (req, res, next) => {
       return res.status(200).json({ message: "Projeto iniciado." });
     });
-    this.express.use((req, res, next) => {
-      console.log("REQUEST: ", req);
-      next();
-    });
   }
 
   routeNotFound() {
