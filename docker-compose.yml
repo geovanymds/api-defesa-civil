@@ -3,7 +3,7 @@ services:
   api-defesa-civil:
     build:
       context: ./
-    container_name: api-defesa-civil
+    container_name: ${CONTAINER_APP_NAME}
     env_file:
       - ./.env
     volumes:
@@ -15,7 +15,7 @@ services:
     restart: on-failure
   db:
     image: mongo
-    container_name: db-defesa-civil
+    container_name: ${CONTAINER_DB_NAME}
     env_file:
       - ./.env
     environment:
