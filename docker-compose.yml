@@ -3,7 +3,9 @@ services:
   api-defesa-civil:
     build:
       context: ./
-    container_name: ${CONTAINER_APP_NAME}
+    container_name: api-defesa-civil
+    environment:
+      - APP_PORT=8000
     env_file:
       - ./.env
     volumes:
@@ -11,14 +13,29 @@ services:
       - /app/node_modules
       - /app/dist
     ports:
-      - ${APP_PORT}:${APP_PORT}
+      - 8000:8000
+    restart: on-failure
+  api-defesa-civil-copy:
+    build:
+      context: ./
+    container_name: api-defesa-civil-copy
+    environment:
+      - APP_PORT=8080
+    env_file:
+      - ./.env
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/dist
+    ports:
+      - 8080:8080
     restart: on-failure
   db:
     image: mongo
-    container_name: ${CONTAINER_DB_NAME}
+    container_name: db-defesa-civil
     env_file:
       - ./.env
     environment:
       MONGO_INITDB_DATABASE: ${DB_NAME}
     ports:
-      - ${DB_PORT_MACHINE}:${DB_PORT}
+      - ${DB_PORT}:${DB_PORT}
